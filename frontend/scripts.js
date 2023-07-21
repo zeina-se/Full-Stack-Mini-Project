@@ -33,16 +33,17 @@ pages.page_signin = async () => {
     document.getElementById("signin").addEventListener("submit", () => {
        const username = document.getElementById("username").value;
        const password = document.getElementById("password").value;
-         
-   axios.post(index_url, {
-       username: username,
-       password: password,
-        })
-       .then((response) => {
-       if(response["status"] =="success"){
-        window.location.href = index_url+"dashboard.html?username="+ response["first_name"];
+       api_data = { 
+        username: username,
+        password: password
+         }  
+       let result = pages.postAPI(index_url,api_data)
+       
+      
+       if(result["status"] =="success"){
+        window.location.href = pages.base_url+"dashboard.php?username="+ result["first_name"];
        }
-   });
+  
 });
 }
 
@@ -56,15 +57,21 @@ pages.page_signup = async() => {
         const first_name = document.getElementById("first_name").value;
         const last_name = document.getElementById("last_name").value;
        
-    axios.post(index_url, {
-        username: username,
-        password: password,
-        first_name: first_name,
-        last_name:last_name
-        })
-        .then((response) => {
-        console.log(response);
-    });
+        api_data = { 
+            username: username,
+            password: password,
+            first_name: first_name,
+            last_name:last_name
+             }  
+           let result = pages.postAPI(index_url,api_data)
+           
+          
+           if(result["status"] =="success"){
+            window.location.href = index_url+"signin.html";
+           }
+    
+        
+       
 });
     }
 
