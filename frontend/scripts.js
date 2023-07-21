@@ -34,8 +34,8 @@ pages.page_signin = async () => {
        const username = document.getElementById("username").value;
        const password = document.getElementById("password").value;
        api_data = { 
-        username: username,
-        password: password
+        "username": username,
+        "password": password
          }  
        let result = pages.postAPI(index_url,api_data)
        
@@ -56,12 +56,12 @@ pages.page_signup = async() => {
         const password = document.getElementById("password").value;
         const first_name = document.getElementById("first_name").value;
         const last_name = document.getElementById("last_name").value;
-       
+        
         api_data = { 
-            username: username,
-            password: password,
-            first_name: first_name,
-            last_name:last_name
+            "username": username,
+            "password": password,
+            "first_name": first_name,
+            "last_name":last_name
              }  
            let result = pages.postAPI(index_url,api_data)
            
